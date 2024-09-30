@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2e364a;
+  height: 150vh;
+}
+
+.timeline {
+  position: relative;
+  margin: 100px auto;
+  max-width: 1200px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 6px;
+  height: 100%;
+  background-color: #ddd;
+  transform: translateX(-50%);
+  animation: moveline 5s linear forwards;
+  z-index: -1;
+}
+
+@keyframes moveline {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+.dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: brown;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: transform 1s ease-in-out;
+}
+
+.container {
+  width: 50%;
+  padding: 10px 50px;
+  position: relative;
+  animation: movedown 1s linear forwards;
+  opacity: 0;
+}
+@keyframes movedown {
+  0% {
+    opacity: 1;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.container:nth-child(1) {
+  animation-delay: 0s;
+}
+.container:nth-child(2) {
+  animation-delay: 1s;
+}
+.container:nth-child(3) {
+  animation-delay: 2s;
+}
+.container:nth-child(4) {
+  animation-delay: 3s;
+}
+.container:nth-child(5) {
+  animation-delay: 4s;
+}
+.container:nth-child(6) {
+  animation-delay: 5s;
+}
+
+.container.left {
+  left: 0;
+}
+
+.container.right {
+  left: 50%;
+}
+
+.content {
+  padding: 20px 30px;
+  background: #fff;
+  position: relative;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.content h2 {
+  font-weight: 600;
+}
+
+.content small {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+  .dot {
+    left: 31px;
+  }
+  .timeline {
+    margin: 50px auto;
+  }
+  .timeline::before {
+    left: 31px;
+  }
+  .container {
+    width: 90%;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 50px;
+  }
+
+  .content {
+    font-size: 13px;
+  }
+  .conent small {
+    margin-bottom: 10px;
+  }
+  .container.right {
+    left: 0;
+  }
+}
